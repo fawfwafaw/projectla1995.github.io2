@@ -15,6 +15,7 @@
     </div>
 </div>
 <body>
+    <iframe id="nav-sound" width="0" height="0" style="display:none;" src=""></iframe>
 <div class="taskbar">
     <div class="start-button">Start</div>
     <div class="taskbar-clock" id="taskbar-clock">--:-- --</div>
@@ -39,11 +40,11 @@
        <div class="guide-box">
     <h3>How to Join</h3>
     <p>
-        Joining Project LA 1995 is simple and handled through our email system. 
-        To begin, join the Project LA Emails Discord and submit a whitelisted application. 
+        Joining Project LA 1995 is simple and handled through our emails. 
+        To begin, join the Project LA Emails and submit a whitelisted application. 
         Your application helps us understand your RP style and ensures that every player entering the city 
         contributes to a high‑quality, immersive environment. 
-        Applications are reviewed within a maximum of 24 hours, and you will receive a response through the email system 
+        Applications are reviewed within a maximum of 24 hours, and you will receive a response through emails
         once your application has been accepted or if any changes are needed.<br><br>
         <strong>Project LA Emails:</strong> 
         <a href="https://discord.gg/473MSgwpFA">✉</a>
@@ -136,6 +137,20 @@
             }, 300);
         }
     }, 15); // 25ms × 100 = 2.5s total
+</script>
+<script>
+function playSound() {
+    const videoID = "BuxWm6pCd6k";
+    const iframe = document.getElementById("nav-sound");
+     iframe.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&mute=1";
+}
+<nav>
+    <a href="index.html" onclick="playSound()">About</a>
+    <a href="guides.html" onclick="playSound()">Guides</a>
+    <a href="discord.html" onclick="playSound()">Discord</a>
+    <a href="socials.html" onclick="playSound()">Socials</a>
+    <a href="store.html" onclick="playSound()">Store</a>
+</nav>
 </script>
 </body>
 
