@@ -15,6 +15,7 @@
     </div>
 </div>
 <body>
+    <iframe id="nav-sound" width="0" height="0" style="display:none;" src=""></iframe>
 <div class="taskbar">
     <div class="start-button">Start</div>
     <div class="taskbar-clock" id="taskbar-clock">--:-- --</div>
@@ -38,6 +39,7 @@
        <p><a href="https://discord.gg/473MSgwpFA"><span class="email-icon">✉️</span> Project LA Emails</a></p>
 <p><a href="https://discord.gg/gecVBTwNra"><span class="email-icon">✉️</span> LAPD Emails</a></p>
 <p><a href="https://discord.gg/tj9dm9xyTB"><span class="email-icon">✉️</span> CHP Emails</a></p>
+<p><a href="https://discord.gg/2yatkMEQ9F"><span class="email-icon">✉️</span> LAFD Emails</a></p>
     </div>
 </div>
 
@@ -89,6 +91,20 @@
             }, 300);
         }
     }, 15); // 25ms × 100 = 2.5s total
+</script>
+<script>
+function playSound() {
+    const videoID = "BuxWm6pCd6k";
+    const iframe = document.getElementById("nav-sound");
+    iframe.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&mute=1";
+}
+<nav>
+    <a href="index.html" onclick="playSound()">About</a>
+    <a href="guides.html" onclick="playSound()">Guides</a>
+    <a href="discord.html" onclick="playSound()">Discord</a>
+    <a href="socials.html" onclick="playSound()">Socials</a>
+    <a href="store.html" onclick="playSound()">Store</a>
+</nav>
 </script>
 </body>
 
