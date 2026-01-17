@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project LA 1995 – Socials</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="boot-screen">
+    <div class="boot-box">
+        <p>Loading Project LA 1995...</p>
+        <div class="boot-bar">
+            <div class="boot-fill" id="boot-fill"></div>
+        </div>
+        <p id="boot-percent">0%</p>
+    </div>
+</div>
+<body>
+<div class="taskbar">
+    <div class="start-button">Start</div>
+    <div class="taskbar-clock" id="taskbar-clock">--:-- --</div>
+</div>
+<nav>
+     <a href="index.html" >About</a>
+    <a href="guides.html">Guides</a>
+    <a href="discord.html">Emails</a>
+    <a href="socials.html"class="active">Emails</a>
+    <a href="store.html">Store</a>
+</nav>
+
+<div class="window">
+    <div class="title-bar">
+        <span>Social Media</span>
+        <div class="title-bar-buttons"><div></div><div></div><div></div></div>
+    </div>
+
+    <div class="content socials">
+        <p><a href="https://www.tiktok.com/@projectla95?is_from_webapp=1&sender_device=pc"><span class="social-icon">♪</span> Tiktok</a></p>
+<p><a href="https://discord.gg/gecVBTwNra"><span class="social-icon">▶</span> YouTube</a></p>
+
+    </div>
+</div>
+
+<footer>© 1995 Project LA</footer>
+<script>
+    // Boot screen fade-out
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.getElementById("boot-screen").classList.add("hidden");
+        }, 2500);
+    });
+
+    // Live clock with forced 1995 year
+    function updateClock() {
+        const now = new Date();
+
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+
+        const day = now.getDate().toString().padStart(2, "0");
+        const month = (now.getMonth() + 1).toString().padStart(2, "0");
+
+        const fakeYear = "1995";
+
+        const timeString = `${hours}:${minutes}`;
+        const dateString = `${day}/${month}/${fakeYear}`;
+
+        document.getElementById("taskbar-clock").textContent = `${timeString}  ${dateString}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+<script>
+    let percent = 0;
+    const fill = document.getElementById("boot-fill");
+    const percentText = document.getElementById("boot-percent");
+
+    const interval = setInterval(() => {
+        percent += 1;
+        fill.style.width = percent + "%";
+        percentText.textContent = percent + "%";
+
+        if (percent >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById("boot-screen").style.opacity = "0";
+                document.getElementById("boot-screen").style.pointerEvents = "none";
+            }, 300);
+        }
+    }, 15); // 25ms × 100 = 2.5s total
+</script>
+</body>
+</html>

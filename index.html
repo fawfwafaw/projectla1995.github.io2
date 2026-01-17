@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project LA 1995 – About</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="boot-screen">
+    <div class="boot-box">
+        <p>Loading Project LA 1995...</p>
+        <div class="boot-bar">
+            <div class="boot-fill" id="boot-fill"></div>
+        </div>
+        <p id="boot-percent">0%</p>
+    </div>
+</div>
+<body>
+<div class="taskbar">
+    <div class="start-button">Start</div>
+    <div class="taskbar-clock" id="taskbar-clock">--:-- --</div>
+</div>
+<nav>
+    <a href="index.html" class="active">About</a>
+    <a href="guides.html">Guides</a>
+    <a href="discord.html">Emails</a>
+    <a href="socials.html">Socials</a>
+    <a href="store.html">Store</a>
+</nav>
+
+<div class="window">
+    <div class="title-bar">
+        <span>About – Project LA 1995</span>
+        <div class="title-bar-buttons"><div></div><div></div><div></div></div>
+    </div>
+       <div class="content">
+
+        <h2>Welcome to Project LA 1995</h2>
+        <p>
+            Project LA 1995 brings you into a gritty, living world inspired by mid‑90s Los Angeles, built on top‑tier scripts that push immersion, realism, and player freedom. Every path — legal or illegal — has depth, progression, and meaningful roleplay opportunities. Whether you’re enforcing the law, saving lives, running a business, or taking over the streets, the city reacts to you.
+        </p>
+
+        <h3>⛨ Law Enforcement (LEO)</h3>
+        <p>
+            Our law enforcement departments operate with advanced policing scripts that give officers full investigative and tactical capability. From realistic traffic stops to in‑depth case building, evidence handling, dispatch integration, and high‑risk warrant service, LEOs have the tools to create dynamic, story‑driven policing. Whether you join LAPD, CHP, or another agency, you’ll experience structured patrols, coordinated operations, and immersive 1995‑style law enforcement roleplay.
+        </p>
+
+        <h3>✚ Fire / EMS</h3>
+        <p>
+            Fire and EMS personnel use a highly realistic medical and rescue system designed to immerse first responders in authentic emergency scenarios. With advanced injury detection, treatment steps, transport mechanics, and fire suppression tools, every callout becomes a meaningful RP moment. From structure fires to multi‑vehicle collisions, the system supports deep, believable emergency roleplay.
+        </p>
+
+        <h3>＄ Civilians</h3>
+        <p>
+            Civilians form the backbone of Project LA. With a wide range of jobs — from delivery work to skilled trades and business ownership — players can build wealth, buy homes, purchase vehicles, acquire weapons, and shape their character’s lifestyle. The economy is fully interactive, giving civilians the freedom to create stories, run companies, and influence the city’s culture.
+        </p>
+
+        <h3>〠 Criminals</h3>
+        <p>
+            For those who choose the illegal path, the city offers a full progression of criminal opportunities. Start small with petty theft or car boosting, then work your way up to high‑stakes robberies, coordinated heists, and even casino robberies. Every criminal script is designed to encourage teamwork, planning, and high‑intensity RP, giving criminals a real sense of risk and reward.
+        </p>
+
+        <h3>☨ Gangs</h3>
+        <p>
+            Gangs can claim and fight for turf, build influence, and control the flow of money and resources in their neighborhoods. With territory systems, illegal enterprises, and multiple ways to generate income, gangs can carve out their identity and leave a lasting mark on the server. Turf wars, alliances, and betrayals all shape the city’s underground ecosystem.
+        </p>
+
+        <h3>✪ Government & Politics</h3>
+        <p>
+            Project LA 1995 also allows players to rise through the political ranks. Become a Mayor or Governor, shape laws, influence departments, and guide the city’s future. Politics isn’t just cosmetic — it affects the entire server and opens the door to deep, long‑term roleplay.
+        </p>
+
+    </div>
+</div>
+
+<footer>© 1995 Project LA</footer>
+<script>
+    // Boot screen fade-out
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.getElementById("boot-screen").classList.add("hidden");
+        }, 2500);
+    });
+
+    // Live clock with forced 1995 year
+    function updateClock() {
+        const now = new Date();
+
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+
+        const day = now.getDate().toString().padStart(2, "0");
+        const month = (now.getMonth() + 1).toString().padStart(2, "0");
+
+        const fakeYear = "1995";
+
+        const timeString = `${hours}:${minutes}`;
+        const dateString = `${day}/${month}/${fakeYear}`;
+
+        document.getElementById("taskbar-clock").textContent = `${timeString}  ${dateString}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+<script>
+    let percent = 0;
+    const fill = document.getElementById("boot-fill");
+    const percentText = document.getElementById("boot-percent");
+
+    const interval = setInterval(() => {
+        percent += 1;
+        fill.style.width = percent + "%";
+        percentText.textContent = percent + "%";
+
+        if (percent >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById("boot-screen").style.opacity = "0";
+                document.getElementById("boot-screen").style.pointerEvents = "none";
+            }, 300);
+        }
+    }, 15); // 25ms × 100 = 2.5s total
+</script>
+</body>
+</html>

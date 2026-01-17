@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project LA 1995 – Guides</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="boot-screen">
+    <div class="boot-box">
+        <p>Loading Project LA 1995...</p>
+        <div class="boot-bar">
+            <div class="boot-fill" id="boot-fill"></div>
+        </div>
+        <p id="boot-percent">0%</p>
+    </div>
+</div>
+<body>
+<div class="taskbar">
+    <div class="start-button">Start</div>
+    <div class="taskbar-clock" id="taskbar-clock">--:-- --</div>
+</div>
+<nav>
+    <a href="index.html" >About</a>
+    <a href="guides.html"class="active">Guides</a>
+    <a href="discord.html">Emails</a>
+    <a href="socials.html">Socials</a>
+    <a href="store.html">Store</a>
+</nav>
+
+<div class="window">
+    <div class="title-bar">
+        <span>Guides</span>
+        <div class="title-bar-buttons"><div></div><div></div><div></div></div>
+    </div>
+
+  <div class="content">
+    <div class="guides">
+
+       <div class="guide-box">
+    <h3>How to Join</h3>
+    <p>
+        Joining Project LA 1995 is simple and handled through our email system. 
+        To begin, join the Project LA Emails Discord and submit a whitelisted application. 
+        Your application helps us understand your RP style and ensures that every player entering the city 
+        contributes to a high‑quality, immersive environment. 
+        Applications are reviewed within a maximum of 24 hours, and you will receive a response through the email system 
+        once your application has been accepted or if any changes are needed.<br><br>
+        <strong>Project LA Emails:</strong> 
+        <a href="https://discord.gg/473MSgwpFA">✉</a>
+    </p>
+</div>
+
+<div class="guide-box">
+    <h3>Server Rules</h3>
+    <p>
+        Before entering the city, all players must read the server rules in full. 
+        These rules exist to maintain fairness, protect the RP environment, and ensure that everyone has an enjoyable experience. 
+        Failure to follow the rules may result in points being added to your account, which act as warnings. 
+        Accumulating too many points can lead to temporary suspensions or permanent bans depending on the severity of the rulebreak. 
+        We strongly recommend reviewing the rules carefully and checking back for updates whenever they are announced.<br><br>
+        <strong>Read the full rules:</strong> 
+        <a href="https://docs.google.com/document/d/10mLGqNo9u93YPQ5vUnfIBOtkeXGB6tGerKkDbBb5YZ4/edit?usp=sharing">✉</a>
+    </p>
+</div>
+
+<div class="guide-box">
+    <h3>Roleplay Guide</h3>
+    <p>
+        Project LA 1995 is built on immersive, story‑driven roleplay. 
+        To help you integrate smoothly, here are the core RP tools and systems you’ll use:<br><br>
+
+        <strong>/me</strong> — Used to describe your character’s visible actions.<br>
+        Example: <em>/me pats the suspect down for weapons</em><br><br>
+
+        <strong>/do</strong> — Used to describe information others would realistically know or see.<br>
+        Example: <em>/do You would see a wallet in his back pocket.</em><br><br>
+
+        <strong>Applying for LEO:</strong>  
+        If you want to join LAPD, CHP, or any law enforcement agency, you must apply through the Emails. You can gain access via the Emails Tab.
+        All LEO roles are whitelisted and require an application to ensure professionalism and RP quality.<br><br>
+
+        <strong>Jobs & City Hall:</strong>  
+        Civilians can obtain jobs at City Hall, Only including public work. To get employed to a whitelisted position,
+        Whitelisted jobs require approval — simply contact the server owner or the appropriate department lead to apply.
+    </p>
+</div>
+
+    </div>
+</div>
+
+<footer>© 1995 Project LA</footer>
+<script>
+    // Boot screen fade-out
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            document.getElementById("boot-screen").classList.add("hidden");
+        }, 2500);
+    });
+
+    // Live clock with forced 1995 year
+    function updateClock() {
+        const now = new Date();
+
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+
+        const day = now.getDate().toString().padStart(2, "0");
+        const month = (now.getMonth() + 1).toString().padStart(2, "0");
+
+        const fakeYear = "1995";
+
+        const timeString = `${hours}:${minutes}`;
+        const dateString = `${day}/${month}/${fakeYear}`;
+
+        document.getElementById("taskbar-clock").textContent = `${timeString}  ${dateString}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+<script>
+    let percent = 0;
+    const fill = document.getElementById("boot-fill");
+    const percentText = document.getElementById("boot-percent");
+
+    const interval = setInterval(() => {
+        percent += 1;
+        fill.style.width = percent + "%";
+        percentText.textContent = percent + "%";
+
+        if (percent >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                document.getElementById("boot-screen").style.opacity = "0";
+                document.getElementById("boot-screen").style.pointerEvents = "none";
+            }, 300);
+        }
+    }, 15); // 25ms × 100 = 2.5s total
+</script>
+</body>
+
+</html>
